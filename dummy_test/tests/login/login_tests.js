@@ -44,26 +44,11 @@ feature('Login', 'As a user', 'I want to do login in the platform', function() {
     });
     var dataset_correct_login = [{username: 'qa.user', password: 'super1q2w3e4r5t6y7u8i9o0p'}];
 
-    scenario.skip('Correct login', dataset_correct_login, function(variant){
-        given.async('the username ' + variant.username + ' and password ' + variant.password, function(){
-
-            username = variant.username;
-            password = variant.password;
-            loginPage.clearAllData();
-
-        });
-        when.async('I do a login', function(){
-            loginPage.dologin(username, password);
-        });
-
-        then.async('I enter to eyeOS main page', function(){
-            browser.sleep(1000);
-            var loginAlert = 'Welcome ' + username
-            var alertDialog = browser.switchTo().alert()
-0
-            expect(alertDialog.getText()).to.eventually.equal(loginAlert);
-
-            alertDialog.accept();
-        });
+    scenario('Rename a file', function(){
+        given.async('Exist a file with name before_test')
+        and.async('Not exist the file with name file_testing')
+        when.async('I rename the file with name file_testing')
+        then.async('I have the file file_testing')
     });
+
 });
