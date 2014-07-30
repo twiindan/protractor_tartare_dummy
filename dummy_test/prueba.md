@@ -1,4 +1,3 @@
-Using the selenium server at http://localhost:4444/wd/hub
 |   | passed | failed | pending | TOTAL |
 |---|-------:|-------:|--------:|------:|
 | Features (US) | 5 | 3 | 1 | 9 |
