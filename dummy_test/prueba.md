@@ -3,7 +3,7 @@ Using the selenium server at http://localhost:4444/wd/hub
 
 |   | passed | failed | pending | TOTAL |
 |---|-------:|-------:|--------:|------:|
-| Features (US) | 3 | 5 | 1 | 9 |
+| Features (US) | 3 | 5 | 2 | 10 |
 | Scenarios (TC) | 6 | 8 | 28 | 42 |
 | Variants (DS) | 6 | 13 | 51 | 70 |
 
@@ -15,7 +15,7 @@ Using the selenium server at http://localhost:4444/wd/hub
   - [Scenario: Contextual menu with several elements selected](#feature-contextual-menu-scenario-contextual-menu-with-several-elements-selected)
   - [Scenario: Contextual menu not showed in sidebar](#feature-contextual-menu-scenario-contextual-menu-not-showed-in-sidebar)
   - [Scenario: Contextual menu without selection](#feature-contextual-menu-scenario-contextual-menu-without-selection)
-- [Feature: Rename elements](#feature-rename-elements)
+- [Feature: Create folder](#feature-create-folder)
 - [Feature: Performance: Desktop Page Load](#feature-performance-desktop-page-load)
   - [Scenario: Desktop Page Load should be less than 3 seconds](#feature-performance-desktop-page-load-scenario-desktop-page-load-should-be-less-than-3-seconds)
 - [Feature: Files Application](#feature-files-application)
@@ -26,6 +26,7 @@ Using the selenium server at http://localhost:4444/wd/hub
   - [Scenario: Back and forward button disabled when enter home the first time](#feature-browse-files-scenario-back-and-forward-button-disabled-when-enter-home-the-first-time)
 - [Feature: Files](#feature-files)
   - [Scenario: Go to Files page](#feature-files-scenario-go-to-files-page)
+- [Feature: Rename elements](#feature-rename-elements)
 - [Feature: Captcha](#feature-captcha)
   - [Scenario: 3 attempts of login with wrong credentials makes Captcha appear](#feature-captcha-scenario-3-attempts-of-login-with-wrong-credentials-makes-captcha-appear)
   - [Scenario: User B, that has not failed any attempt of login, can login without captcha after user A has been failing for more than 3 times](#feature-captcha-scenario-user-b-that-has-not-failed-any-attempt-of-login-can-login-without-captcha-after-user-a-has-been-failing-for-more-than-3-times)
@@ -81,27 +82,27 @@ Using the selenium server at http://localhost:4444/wd/hub
 <i><b> Then:</b> I obtain the folder menu elements: New folder,Refresh</i></code></pre>
 
 
-<a name="feature-rename-elements"></a>
-## _Feature: Rename elements_
+<a name="feature-create-folder"></a>
+## _Feature: Create folder_
 - As a user
 - I want browse the files and folders available
 
 ---
-<a name="feature-rename-elements-scenario-create-a-folder-using-contextual-menu"></a>
+<a name="feature-create-folder-scenario-create-a-folder-using-contextual-menu"></a>
 ### _Scenario: Create a folder using contextual menu_
 <pre><code><i><b>Given:</b> Not exist the element with name folder_testing</i>
 <i><b> When:</b> I create a new folder with name folder_testing using the contextual menu</i>
 <i><b> Then:</b> A new folder is created with name "New Folder"</i></code></pre>
 
 
-<a name="feature-rename-elements-scenario-create-a-folder-using--menu"></a>
+<a name="feature-create-folder-scenario-create-a-folder-using--menu"></a>
 ### _Scenario: Create a folder using "+" menu_
 <pre><code><i><b>Given:</b> Not exist the element with name folder_testing</i>
 <i><b> When:</b> I create a new folder with name folder_testing using the "+" menu</i>
 <i><b> Then:</b> A new folder is created with name "New Folder"</i></code></pre>
 
 
-<a name="feature-rename-elements-scenario-create-a-folder-with-case-sensitive"></a>
+<a name="feature-create-folder-scenario-create-a-folder-with-case-sensitive"></a>
 ### _Scenario: Create a folder with case sensitive_
 **_Variant #1_**
 <pre><code><i><b>Given:</b> Exist the file with name folder_testing</i>
@@ -116,7 +117,7 @@ Using the selenium server at http://localhost:4444/wd/hub
 <i><b>  And:</b> Not there are file before_test</i></code></pre>
 
 
-<a name="feature-rename-elements-scenario-create-a-folder-with-existant-name"></a>
+<a name="feature-create-folder-scenario-create-a-folder-with-existant-name"></a>
 ### _Scenario: Create a folder with existant name_
 **_Variant #1_**
 <pre><code><i><b>Given:</b> Exist the element with name file_testing</i>
@@ -140,21 +141,21 @@ Using the selenium server at http://localhost:4444/wd/hub
 <i><b>  And:</b> I continue in the edition name mode</i></code></pre>
 
 
-<a name="feature-rename-elements-scenario-create-folder-with-the-default-name"></a>
+<a name="feature-create-folder-scenario-create-folder-with-the-default-name"></a>
 ### _Scenario: Create folder with the default name_
 <pre><code><i><b>Given:</b> Not exist a element with name "New folder"</i>
 <i><b> When:</b> I create a folder with the default name</i>
 <i><b> Then:</b> The folder is created with the name "New Folder"</i></code></pre>
 
 
-<a name="feature-rename-elements-scenario-create-folder-with-the-default-name-when-exist-an-element-with-the-default-name"></a>
+<a name="feature-create-folder-scenario-create-folder-with-the-default-name-when-exist-an-element-with-the-default-name"></a>
 ### _Scenario: Create folder with the default name when exist an element with the default name_
 <pre><code><i><b>Given:</b> Exist a element with name "New folder"</i>
 <i><b> When:</b> I create a folder with the default name</i>
 <i><b> Then:</b> The folder is created with the name "New Folder 2"</i></code></pre>
 
 
-<a name="feature-rename-elements-scenario-cancel-the-create-folder-action"></a>
+<a name="feature-create-folder-scenario-cancel-the-create-folder-action"></a>
 ### _Scenario: Cancel the create folder action_
 <pre><code><i><b>Given:</b> Not exist a element with name "New folder"</i>
 <i><b> When:</b> I create a new folder</i>
@@ -162,7 +163,7 @@ Using the selenium server at http://localhost:4444/wd/hub
 <i><b> Then:</b> The folder is created with the name "New Folder"</i></code></pre>
 
 
-<a name="feature-rename-elements-scenario-create-a-folder-with-more-than-200-charactares"></a>
+<a name="feature-create-folder-scenario-create-a-folder-with-more-than-200-charactares"></a>
 ### _Scenario: Create a folder with more than 200 charactares_
 <pre><code><i><b>Given:</b> Not exist a element with name "New folder"</i>
 <i><b> When:</b> I create a folder with name with 201 characters</i>
@@ -171,7 +172,7 @@ Using the selenium server at http://localhost:4444/wd/hub
 <i><b>  And:</b> I continue in the edition name mode</i></code></pre>
 
 
-<a name="feature-rename-elements-scenario-rename-a-file-with-invalid-characters"></a>
+<a name="feature-create-folder-scenario-rename-a-file-with-invalid-characters"></a>
 ### _Scenario: Rename a file with invalid characters_
 **_Variant #1_**
 <pre><code><i><b>Given:</b> Not exist a element with name "New folder"</i>
@@ -244,7 +245,7 @@ Using the selenium server at http://localhost:4444/wd/hub
 <i><b>  And:</b> I continue in the edition name mode</i></code></pre>
 
 
-<a name="feature-rename-elements-scenario-rename-a-file-with-empty-string"></a>
+<a name="feature-create-folder-scenario-rename-a-file-with-empty-string"></a>
 ### _Scenario: Rename a file with empty string_
 <pre><code><i><b>Given:</b> Not exist a element with name "New folder"</i>
 <i><b> When:</b> I create a folder with an empty string</i>
@@ -253,7 +254,7 @@ Using the selenium server at http://localhost:4444/wd/hub
 <i><b>  And:</b> I continue in the edition name mode</i></code></pre>
 
 
-<a name="feature-rename-elements-scenario-rename-a-file-with-only-spaces"></a>
+<a name="feature-create-folder-scenario-rename-a-file-with-only-spaces"></a>
 ### _Scenario: Rename a file with only spaces_
 <pre><code><i><b>Given:</b> Not exist a element with name "New folder"</i>
 <i><b> When:</b> I create a folder with only spaces</i>
@@ -262,7 +263,7 @@ Using the selenium server at http://localhost:4444/wd/hub
 <i><b>  And:</b> I continue in the edition name mode</i></code></pre>
 
 
-<a name="feature-rename-elements-scenario-automatic-scrolling-create-folder"></a>
+<a name="feature-create-folder-scenario-automatic-scrolling-create-folder"></a>
 ### _Scenario: Automatic scrolling create folder_
 <pre><code><i><b>Given:</b> There are 100 elements starting with the chracter "c"</i>
 <i><b> When:</b> I create a folder with the default name</i>
@@ -270,6 +271,70 @@ Using the selenium server at http://localhost:4444/wd/hub
 <i><b>  And:</b> The system scrolls until the folder created</i></code></pre>
 
 
+
+<a name="feature-performance-desktop-page-load"></a>
+## Feature: Performance: Desktop Page Load
+
+---
+<a name="feature-performance-desktop-page-load-scenario-desktop-page-load-should-be-less-than-3-seconds"></a>
+### Scenario: Desktop Page Load should be less than 3 seconds
+<pre><code><b>Given:</b> the url of the desktop
+<b> When:</b> load the page
+<b> Then:</b> the page is loaded in less than 3 seconds</code></pre>
+
+<a name="feature-files-application"></a>
+## Feature: Files Application
+- As a user
+- I want to be able to open Files app from menu
+
+---
+<a name="feature-files-application-scenario-applications-menu-shows-the-files-app"></a>
+### Scenario: Applications Menu shows the Files app
+<pre><code><b>Given:</b> The app is called Files
+<b> When:</b> Open menu app and select Files
+<b> Then:</b> Check the app opened is Files</code></pre>
+
+<a name="feature-browse-files"></a>
+## Feature: browse files
+- As a user
+- I want browse the files and folders available
+
+---
+<a name="feature-browse-files-scenario-list-elements-when-open-files-application"></a>
+### Scenario: List elements when open files application
+<pre><code><b>Given:</b> There are 150 elements in a folder
+<b> When:</b> I open the folder
+<b> Then:</b> I see 150 elements</code></pre>
+
+<a name="feature-browse-files-scenario-list-elements-when-refresh-files-application"></a>
+### Scenario: List elements when refresh files application
+<pre><code><b>Given:</b> There are 150 elements in a folder
+<b> When:</b> I open the folder
+<b> Then:</b> I see 150 elements</code></pre>
+
+<a name="feature-browse-files-scenario-back-and-forward-button-disabled-when-enter-home-the-first-time"></a>
+### Scenario: Back and forward button disabled when enter home the first time
+<pre><code><b> When:</b> I open files application
+<b> Then:</b> The back and forward buttons are disabled</code></pre>
+
+<a name="feature-files"></a>
+## Feature: Files
+- As a user
+- I want to see on a webpage the files on a directory
+
+---
+<a name="feature-files-scenario-go-to-files-page"></a>
+### Scenario: Go to Files page
+<pre><code><b>Given:</b> Go to Files page
+<b> When:</b> The page is loaded
+<b> Then:</b> Check tittle</code></pre>
+
+<a name="feature-rename-elements"></a>
+## _Feature: Rename elements_
+- As a user
+- I want browse the files and folders available
+
+---
 <a name="feature-rename-elements-scenario-rename-a-file"></a>
 ### _Scenario: Rename a file_
 **_Variant #1_**
@@ -464,63 +529,6 @@ Using the selenium server at http://localhost:4444/wd/hub
 <i><b>  And:</b> The system scrolls until the file renamed</i></code></pre>
 
 
-
-<a name="feature-performance-desktop-page-load"></a>
-## Feature: Performance: Desktop Page Load
-
----
-<a name="feature-performance-desktop-page-load-scenario-desktop-page-load-should-be-less-than-3-seconds"></a>
-### Scenario: Desktop Page Load should be less than 3 seconds
-<pre><code><b>Given:</b> the url of the desktop
-<b> When:</b> load the page
-<b> Then:</b> the page is loaded in less than 3 seconds</code></pre>
-
-<a name="feature-files-application"></a>
-## Feature: Files Application
-- As a user
-- I want to be able to open Files app from menu
-
----
-<a name="feature-files-application-scenario-applications-menu-shows-the-files-app"></a>
-### Scenario: Applications Menu shows the Files app
-<pre><code><b>Given:</b> The app is called Files
-<b> When:</b> Open menu app and select Files
-<b> Then:</b> Check the app opened is Files</code></pre>
-
-<a name="feature-browse-files"></a>
-## Feature: browse files
-- As a user
-- I want browse the files and folders available
-
----
-<a name="feature-browse-files-scenario-list-elements-when-open-files-application"></a>
-### Scenario: List elements when open files application
-<pre><code><b>Given:</b> There are 150 elements in a folder
-<b> When:</b> I open the folder
-<b> Then:</b> I see 150 elements</code></pre>
-
-<a name="feature-browse-files-scenario-list-elements-when-refresh-files-application"></a>
-### Scenario: List elements when refresh files application
-<pre><code><b>Given:</b> There are 150 elements in a folder
-<b> When:</b> I open the folder
-<b> Then:</b> I see 150 elements</code></pre>
-
-<a name="feature-browse-files-scenario-back-and-forward-button-disabled-when-enter-home-the-first-time"></a>
-### Scenario: Back and forward button disabled when enter home the first time
-<pre><code><b> When:</b> I open files application
-<b> Then:</b> The back and forward buttons are disabled</code></pre>
-
-<a name="feature-files"></a>
-## Feature: Files
-- As a user
-- I want to see on a webpage the files on a directory
-
----
-<a name="feature-files-scenario-go-to-files-page"></a>
-### Scenario: Go to Files page
-<pre><code><b>Given:</b> Go to Files page
-<b> When:</b> The page is loaded
-<b> Then:</b> Check tittle</code></pre>
 
 <a name="feature-captcha"></a>
 ## Feature: Captcha
