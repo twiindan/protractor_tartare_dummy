@@ -4,7 +4,7 @@
 
 var chai = require('chai');
 var chaiAsPromised = require('chai-as-promised');
-require('tdaf-node-tartare')
+require('tartare')
 var loginPage = require('../../pageObjects/LoginPage.js')
 
 chai.use(chaiAsPromised);
@@ -26,16 +26,20 @@ feature('Login', 'As a user', 'I want to do login in the platform', function() {
     ];
 
     scenario('Incorrect login', dataset_incorrect_login, function(variant){
-
+	beforeScenario.async(function(){
+	    console.log('executing')
+            username = 'hello';
+            password = 'hello';
+            loginPage.clearAllData();
+            loginPage.dologin(username, password);
+	    console.log('finish before_scenario');
+});
         given.async('the username ' + variant.username + ' and password ' + variant.password, function(){
 
-            username = variant.username;
-            password = variant.password;
-            loginPage.clearAllData();
         });
 
         when.async('I do a login', function(){
-            loginPage.dologin(username, password);
+            
         });
 
         then.async('I remain in login page', function(){
