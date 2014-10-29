@@ -32,7 +32,7 @@ exports.config = {
     // Options to be passed to mocha-node.
     mochaOpts: {
         //reporter: 'spec',
-        reporter: ('../../../tartare/gherkin.js'),
+        reporter: ('tartare/gherkin'),
         slow: 3000,
         enableTimeouts: false
     }

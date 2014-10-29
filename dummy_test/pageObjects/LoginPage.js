@@ -3,7 +3,6 @@
  */
 
 var loginPage = function() {
-
     this.usernameTestbox = element(by.name('Email'));
     this.passwordTestbox = element(by.name('Passwd'));
     this.loginButton = element(by.id('signIn'));
@@ -20,11 +19,9 @@ var loginPage = function() {
     };
 
     this.clearAllData = function(){
-
         this.usernameTestbox.clear();
         this.passwordTestbox.clear();
-
     };
-}
+};
 
 module.exports = new loginPage();
